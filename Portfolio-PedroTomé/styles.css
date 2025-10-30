@@ -309,9 +309,9 @@ body {
     height: 223px;
 }
 
-.icono-estrella {
+.guion {
     font-size: 2rem;
-    color: var(--color-azul);
+    color: var(--color-blanco);
 }
 
 .titulo-cta {
@@ -956,7 +956,7 @@ body {
     margin-bottom: 2rem;
 }
 
-.icono-estrella-formulario {
+.guion-formulario {
     position: absolute;
     top: 3rem;
     right: 3rem;
