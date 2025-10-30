@@ -746,18 +746,18 @@ body {
     background-color: var(--color-azul);
 }
 
-/* Sección Trabajos */
-.seccion-trabajos {
+/* Sección proyectos */
+.seccion-proyectos {
     min-height: 100vh;
     padding: 120px 2rem 4rem;
 }
 
-.contenedor-trabajos {
+.contenedor-proyectos {
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.titulo-trabajos {
+.titulo-proyectos {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -1104,7 +1104,7 @@ body {
     }
     
     .titulo-servicios,
-    .titulo-trabajos {
+    .titulo-proyectos {
         font-size: 2rem;
     }
 }

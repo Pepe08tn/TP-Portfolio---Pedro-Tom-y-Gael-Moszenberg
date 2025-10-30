@@ -59,8 +59,8 @@ function animarEstadisticas() {
     
     numerosEstadisticas.forEach(numero => {
         const objetivo = parseInt(numero.getAttribute('data-objetivo'));
-        const duracion = 2000; // 2 segundos
-        const incremento = objetivo / (duracion / 16); // 60 FPS
+        const duracion = 3000; // 2 segundos
+        const incremento = objetivo / (duracion / 30); // 60 FPS
         let valorActual = 0;
         
         const actualizarContador = () => {
@@ -69,7 +69,7 @@ function animarEstadisticas() {
                 numero.textContent = Math.floor(valorActual);
                 requestAnimationFrame(actualizarContador);
             } else {
-                numero.textContent = objetivo + (objetivo === 60 || objetivo === 100 ? '+' : '');
+                numero.textContent = objetivo + (objetivo === 5 || objetivo === 10 ? '+' : ''); // Añadir '+' a ciertos valores
             }
         };
         
