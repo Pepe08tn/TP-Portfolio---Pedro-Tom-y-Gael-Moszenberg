@@ -5,10 +5,10 @@
 }
 
 :root {
-    --color-fondo: #0a0a0a;
-    --color-fondo-secundario: #1a1a1a;
-    --color-texto: #ffffff;
-    --color-texto-secundario: #a0a0a0;
+    --color-fondo: #FFF9F9;
+    --color-fondo-secundario: #B8A7A7;
+    --color-texto: #000000;
+    --color-texto-secundario: #514A4A;
     --color-azul: #4169E1;
     --color-azul-hover: #5179f1;
     --radio-borde: 16px;
@@ -29,11 +29,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: #FFF9F9;
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .contenedor-nav {
@@ -124,14 +124,17 @@ body {
     display: grid;
     grid-template-columns: 350px 1fr;
     gap: 2rem;
+    flex-direction: row-reverse;
 }
 
 .tarjeta-perfil {
     background-color: var(--color-fondo-secundario);
     border-radius: var(--radio-borde);
     padding: 2rem;
+    margin-left: 30rem;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 34rem;
 }
 
 .imagen-perfil {
@@ -224,6 +227,7 @@ body {
     position: relative;
     transition: var(--transicion);
     cursor: pointer;
+    width: 25rem;
 }
 
 .tarjeta-info:hover {
@@ -276,6 +280,8 @@ body {
     justify-content: space-around;
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 2rem;
+    margin-left: 30rem;
+    width: 34rem;
 }
 
 .estadistica {
@@ -307,6 +313,7 @@ body {
     position: relative;
     overflow: hidden;
     height: 223px;
+    width: 52rem;
 }
 
 .guion {
@@ -463,7 +470,7 @@ body {
 .item-experiencia {
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .item-experiencia:last-child {
