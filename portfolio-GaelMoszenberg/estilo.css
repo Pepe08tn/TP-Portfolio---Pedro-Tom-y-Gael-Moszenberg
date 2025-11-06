@@ -122,9 +122,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr 350px; /* contenido principal a la izquierda, perfil a la derecha */
     gap: 2rem;
-    flex-direction: row-reverse;
 }
 
 .tarjeta-perfil {
@@ -133,6 +132,14 @@ body {
     padding: 2rem;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Asegurar que la tarjeta de perfil quede en la columna derecha y se quede fija al hacer scroll */
+.tarjeta-perfil {
+    grid-column: 2 / 3;
+    position: sticky;
+    top: 120px;
+    align-self: start;
 }
 
 .imagen-perfil {
@@ -217,6 +224,11 @@ body {
     margin-top: 2rem;
 }
 
+/* Las tarjetas y bloques principales ocupan la columna izquierda */
+.tarjetas-info {
+    grid-column: 1 / 2;
+}
+
 .tarjeta-info {
     background-color: var(--color-fondo-secundario);
     border-radius: var(--radio-borde);
@@ -279,6 +291,10 @@ body {
     margin-bottom: 2rem;
 }
 
+.estadisticas {
+    grid-column: 1 / 2;
+}
+
 .estadistica {
     text-align: center;
 }
@@ -308,6 +324,10 @@ body {
     position: relative;
     overflow: hidden;
     height: 223px;
+}
+
+.cta-trabajemos {
+    grid-column: 1 / 2;
 }
 
 .guion {
