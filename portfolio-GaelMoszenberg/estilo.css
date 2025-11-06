@@ -770,10 +770,78 @@ body {
     gap: 2rem;
 }
 
-.grid-proyectos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.carousel-proyectos {
+    display: flex;
+    transition: transform 0.5s ease;
     gap: 2rem;
+    padding: 1rem;
+    margin: 0 -1rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-azul);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transicion);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-button:hover:not(:disabled) {
+    background-color: var(--color-azul-hover);
+}
+
+.carousel-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-fondo-secundario);
+    border: 1px solid var(--color-azul);
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.carousel-dot.active {
+    background-color: var(--color-azul);
 }
 
 .tarjeta-proyecto {
@@ -1073,8 +1141,10 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .grid-proyectos {
-        grid-template-columns: repeat(2, 1fr);
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 
@@ -1121,8 +1191,14 @@ body {
         gap: 2rem;
     }
     
-    .grid-proyectos {
-        grid-template-columns: 1fr;
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-dots {
+        margin-top: 0.5rem;
     }
     
     .titulo-cta,

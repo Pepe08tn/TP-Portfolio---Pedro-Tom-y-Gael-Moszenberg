@@ -175,6 +175,94 @@ document.querySelectorAll('.tarjeta-info, .tarjeta-proyecto').forEach(tarjeta =>
     });
 });
 
+// Carrusel de proyectos
+function initCarousel() {
+    const carousel = document.querySelector('.carousel-proyectos');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const slides = carousel.querySelectorAll('.tarjeta-proyecto');
+    let currentSlide = 0;
+    const slidesToShow = window.innerWidth > 968 ? 3 : window.innerWidth > 640 ? 2 : 1;
+
+    // Configurar el ancho de los slides
+    function setupSlides() {
+        const containerWidth = carousel.clientWidth;
+        const gap = 32; // 2rem en pixeles
+        const totalGaps = slidesToShow - 1;
+        const totalGapWidth = gap * totalGaps;
+        const slideWidth = (containerWidth - totalGapWidth) / slidesToShow;
+        
+        slides.forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+    }
+
+    // Crear puntos de navegación
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        const numDots = Math.ceil(slides.length / slidesToShow);
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // Actualizar la posición del carrusel
+    function updateCarousel() {
+        const containerWidth = carousel.clientWidth;
+        const gap = 32; // 2rem en pixeles
+        const totalGaps = slidesToShow - 1;
+        const totalGapWidth = gap * totalGaps;
+        const slideWidth = (containerWidth - totalGapWidth) / slidesToShow;
+        const offset = -currentSlide * (slideWidth + gap) * slidesToShow;
+        carousel.style.transform = `translateX(${offset}px)`;
+        
+        // Actualizar dots
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+
+        // Actualizar estado de los botones
+        const maxSlide = Math.ceil(slides.length / slidesToShow) - 1;
+        prevButton.disabled = currentSlide === 0;
+        nextButton.disabled = currentSlide === maxSlide;
+    }
+
+    // Ir a un slide específico
+    function goToSlide(index) {
+        const maxSlide = Math.ceil(slides.length / slidesToShow) - 1;
+        currentSlide = Math.max(0, Math.min(index, maxSlide));
+        updateCarousel();
+    }
+
+    // Event listeners para los botones
+    prevButton.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+    });
+
+    // Responsive
+    window.addEventListener('resize', () => {
+        setupSlides();
+        createDots();
+        updateCarousel();
+    });
+
+    // Inicialización
+    setupSlides();
+    createDots();
+    updateCarousel();
+}
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Portfolio cargado correctamente');
@@ -197,4 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
         seccion.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observador.observe(seccion);
     });
+
+    // Inicializar el carrusel
+    initCarousel();
 });
