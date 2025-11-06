@@ -197,6 +197,4 @@ document.addEventListener('DOMContentLoaded', function() {
         seccion.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observador.observe(seccion);
     });
-
-    // (carrusel eliminado) ninguna inicialización adicional necesaria
 });
