@@ -197,4 +197,18 @@ document.addEventListener('DOMContentLoaded', function() {
         seccion.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observador.observe(seccion);
     });
+
+    // Apply background images for .habilidad elements that have data-img
+    // Use encodeURI to ensure special characters (e.g. '#') are properly escaped in the URL
+    document.querySelectorAll('.habilidad[data-img]').forEach(el => {
+        const img = el.getAttribute('data-img');
+        if (img) {
+            const safeImg = encodeURI(img);
+            el.style.backgroundImage = `url("${safeImg}")`;
+            el.style.backgroundSize = '70% 70%';
+            el.style.backgroundPosition = 'center';
+            el.style.backgroundRepeat = 'no-repeat';
+            el.classList.add('has-img');
+        }
+    });
 });
