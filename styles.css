@@ -128,6 +128,7 @@ body {
 
 .tarjeta-perfil {
     background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(20,20,20,0.6));
+    margin-top: 2rem;
     border-radius: var(--radio-borde);
     padding: 2rem;
     text-align: center;
@@ -202,22 +203,24 @@ body {
 
 .boton-contacto {
     display: block;
-    background-color: var(--color-azul);
+    background: linear-gradient(180deg, var(--color-azul), var(--color-azul-hover));
     color: var(--color-texto);
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
+    padding: 0.95rem 1.6rem;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    transition: var(--transicion);
+    font-weight: 700;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
     width: 100%;
     max-width: 320px;
     margin: 1rem auto 0;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(65,105,225,0.12);
+    border: 1px solid rgba(255,255,255,0.04);
 }
 
 .boton-contacto:hover {
-    background-color: var(--color-azul-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(65,105,225,0.18);
 }
 
 .tarjetas-info {
@@ -256,40 +259,63 @@ body {
 
 .descripcion-tarjeta {
     color: var(--color-texto-secundario);
-    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
-.flecha-tarjeta {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
+/* CTA card that appears below Sobre Mi */
+.cta-debajo-card {
+    background: linear-gradient(180deg, rgba(0,0,0,0.65), rgba(20,20,20,0.55));
+    border-radius: 22px;
+    padding: 2.25rem 2.25rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--color-texto);
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: var(--transicion);
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
 }
-
-.tarjeta-info:hover .flecha-tarjeta {
-    background-color: var(--color-azul);
+.cta-debajo-text {
+    flex: 1 1 auto;
 }
-
-.estadisticas {
-    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(20,20,20,0.6));
-    border-radius: 18px;
-    padding: 3rem 2rem;
+.cta-debajo-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.45rem;
+    font-weight: 800;
+}
+.cta-debajo-text p {
+    color: var(--color-texto-secundario);
+    max-width: 900px;
+    line-height: 1.7;
+}
+.cta-debajo-action {
+    flex: 0 0 auto;
     display: flex;
-    justify-content: space-around;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: flex-end;
 }
+
+/* Consolidated button styles (only modify button visuals here) */
+.boton-contacto-large {
+    background: linear-gradient(180deg, var(--color-azul), var(--color-azul-hover));
+    color: var(--color-texto);
+    padding: 0.9rem 1.6rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(65,105,225,0.18);
+    border: 1px solid rgba(255,255,255,0.04);
+    z-index: 2; /* ensure button sits above nearby elements */
+    display: inline-block;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.boton-contacto-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(65,105,225,0.22);
+    background: linear-gradient(180deg, var(--color-azul-hover), var(--color-azul));
+}
+
 
 .estadistica {
     text-align: center;
@@ -342,7 +368,7 @@ body {
 .flecha-cta {
     width: 60px;
     height: 60px;
-    background-color: var(--color-azul);
+    background: linear-gradient(180deg, var(--color-azul), var(--color-azul-hover));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -350,12 +376,47 @@ body {
     color: var(--color-texto);
     text-decoration: none;
     font-size: 2rem;
-    transition: var(--transicion);
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+    box-shadow: 0 8px 20px rgba(65,105,225,0.12);
 }
 
 .flecha-cta:hover {
-    background-color: var(--color-azul-hover);
-    transform: rotate(45deg) scale(1.1);
+    transform: rotate(45deg) scale(1.08);
+    box-shadow: 0 16px 36px rgba(65,105,225,0.18);
+}
+
+/* Arrow button inside each .tarjeta-info: place bottom-right */
+.tarjeta-info .flecha-tarjeta {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, var(--color-azul), var(--color-azul-hover));
+    color: var(--color-texto);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.05rem;
+    box-shadow: 0 8px 20px rgba(65,105,225,0.12);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.tarjeta-info .flecha-tarjeta:hover {
+    transform: rotate(45deg) scale(1.06);
+    box-shadow: 0 16px 36px rgba(65,105,225,0.18);
+}
+
+@media (max-width: 640px) {
+    .tarjeta-info .flecha-tarjeta {
+        right: 14px;
+        bottom: 14px;
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
 }
 
 /* Sección Sobre Mí */
@@ -368,7 +429,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr; /* single column now that left profile column was removed */
     gap: 3rem;
 }
 
@@ -532,6 +593,47 @@ body {
         font-size: 1.75rem;
     }
 }
+
+/* CTA debajo de Sobre Mi */
+.seccion-cta-debajo {
+    padding: 40px 2rem 20px;
+}
+.contenedor-cta-debajo {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cta-debajo-card {
+    background: linear-gradient(180deg, rgba(0,0,0,0.65), rgba(20,20,20,0.55));
+    border-radius: 18px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+.cta-debajo-text p {
+    color: var(--color-texto-secundario);
+    max-width: 760px;
+    line-height: 1.7;
+}
+@media (max-width: 900px) {
+    .cta-debajo-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cta-debajo-action {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .boton-contacto-large { width: 70%; text-align: center; }
+}
+
+/* small tweak: ensure CTA sits with same max-width as sobre-mi-card */
+.seccion-cta-debajo .contenedor-cta-debajo { max-width: 900px; }
 
 .titulo-experiencia {
     font-size: 0.9rem;
@@ -744,8 +846,8 @@ body {
 }
 
 .flecha-cta-servicios:hover {
-    background-color: var(--color-azul-hover);
-    transform: rotate(45deg) scale(1.1);
+    background: linear-gradient(180deg, var(--color-azul-hover), var(--color-azul));
+    transform: rotate(45deg) scale(1.08);
 }
 
 .firma-servicios {
