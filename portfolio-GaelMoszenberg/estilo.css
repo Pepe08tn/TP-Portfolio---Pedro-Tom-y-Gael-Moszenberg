@@ -114,17 +114,18 @@ body {
 
 /* Sección Inicio */
 .seccion-inicio {
-    min-height: 100vh;
-    padding: 120px 2rem 4rem;
+    min-height: auto;
+    padding: 120px 2rem 2rem;
 }
 
 .contenedor-inicio {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr 350px; /* main content left, profile card right */
+    grid-template-rows: auto auto auto; /* 3 rows: tarjetas, estadisticas, cta */
     gap: 2rem;
-    flex-direction: row-reverse;
+    align-items: start; /* ensure both columns start at the same top */
 }
 
 .tarjeta-perfil {
@@ -133,6 +134,13 @@ body {
     padding: 2rem;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* place profile card on the right column and keep it visible */
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+    position: sticky;
+    top: 120px;
+    align-self: start;
 }
 
 .imagen-perfil {
@@ -214,7 +222,9 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 0; /* remove extra top margin so it aligns with the profile card */
+    grid-column: 1 / 2;
+    grid-row: 1;
 }
 
 .tarjeta-info {
@@ -277,6 +287,10 @@ body {
     justify-content: space-around;
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 2rem;
+
+    /* keep stats in the main column */
+    grid-column: 1 / 2;
+    grid-row: 2;
 }
 
 .estadistica {
@@ -308,6 +322,10 @@ body {
     position: relative;
     overflow: hidden;
     height: 223px;
+
+    /* keep CTA in the main column */
+    grid-column: 1 / 2;
+    grid-row: 3;
 }
 
 .guion {
@@ -1135,10 +1153,29 @@ body {
 @media (max-width: 1200px) {
     .contenedor-inicio {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    
+    .tarjeta-perfil {
+        grid-column: 1 / 2;
+        grid-row: 4;
+        position: static;
     }
     
     .tarjetas-info {
         grid-template-columns: repeat(2, 1fr);
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+    
+    .estadisticas {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+    
+    .cta-trabajemos {
+        grid-column: 1 / 2;
+        grid-row: 3;
     }
     
     .carousel-button {
