@@ -1487,7 +1487,7 @@ body {
     }
 }
 
-body.claro {
+body.light {
     --color-fondo: #c4c4c4;
     --color-fondo-secundario: #ffffff;
     --color-texto: #000000;
@@ -1496,95 +1496,224 @@ body.claro {
     --color-azul-hover: #5179f1;
 }
 
-/* TARJETAS EN MODO CLARO */
-body.claro .tarjeta-info,
-body.claro .tarjeta-perfil,
-body.claro .cta-trabajemos,
-body.claro .contenido-servicios,
-body.claro .sobre-mi-card,
-body.claro .cta-debajo-card,
-body.claro .firma-servicios,
-body.claro .item-menu-servicio,
-body.claro .servicio-card,
-body.claro .contenido-cta-servicios,
-body.claro .perfiles-servicios perfiles-habilidades,
-body.claro .perfiles-servicios,
-body.claro .habilidades,
-body.claro .habilidad-card,
-body.claro .info-proyecto,
-body.claro .contact-card,
-body.claro .proyecto-card,
-body.claro .proyecto-info,
-body.claro .contacto-card,
-body.claro .info-card {
-    background: #cfcfcf !important; /* Fondo claro limpio */
+/* TARJETAS EN MODO light */
+body.light .tarjeta-info,
+body.light .tarjeta-perfil,
+body.light .cta-trabajemos,
+body.light .contenido-servicios,
+body.light .sobre-mi-card,
+body.light .cta-debajo-card,
+body.light .firma-servicios,
+body.light .item-menu-servicio,
+body.light .servicio-card,
+body.light .contenido-cta-servicios,
+body.light .perfiles-servicios perfiles-habilidades,
+body.light .perfiles-servicios,
+body.light .habilidades,
+body.light .habilidad-card,
+body.light .info-proyecto,
+body.light .contact-card,
+body.light .proyecto-card,
+body.light .proyecto-info,
+body.light .contacto-card,
+body.light .info-card {
+    background: #cfcfcf !important; /* Fondo light limpio */
     border: 3px solid rgba(0, 0, 0, 0.08); /* Borde suave */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); /* Sombra elegante */
     color: var(--color-texto); /* Texto oscuro */
 
 }
-body.claro .social-box,
-body.claro .item-contacto,
-body.claro .icono-perfil{
+body.light .social-box,
+body.light .item-contacto,
+body.light .icono-perfil{
     background-color: rgb(187, 186, 186) !important;
 }
 
-body.claro .icono-red-contacto{
+body.light .icono-red-contacto{
     background-color: #ffffff;
     width: 50px;
     height: 50px
 }
 
-body.claro .flecha-perfiles{
+body.light .flecha-perfiles{
     color: #4169E1;
 }
-body.claro .flecha-perfiles:hover{
+body.light .flecha-perfiles:hover{
     background-color: #5179f1;
 }
 
 
-body.claro .item-menu-servicio.activo {
+body.light .item-menu-servicio.activo {
     background-color: var(--color-azul);
     border-color: var(--color-azul);
     color: #000000;
     box-shadow: 0 8px 28px rgba(65,105,225,0.15);
 }
 
-body.claro .perfiles-habilidades .titulo-perfiles {
+body.light .perfiles-habilidades .titulo-perfiles {
     color: #0a0a0a;
 }
 
-.toggle-tema {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(71, 71, 71, 0.87);
-    backdrop-filter: blur(6px);
+
+
+.theme-toggle {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: #2d2d2d;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform .3s ease, background .3s ease;
     position: relative;
+    transition: all .3s ease;
+    padding-left: 4rem;
 }
 
-.toggle-tema:hover {
-    transform: scale(1.08) rotate(10deg);
-    background: rgba(255,255,255,0.2);
+.theme-toggle:hover {
+    transform: scale(1.08);
 }
 
-.toggle-tema span {
+.theme-toggle span {
     position: absolute;
-    font-size: 1.2rem;
-    transition: opacity .4s ease, transform .4s ease;
+    font-size: 1.6rem;
+    transition: opacity .25s ease, transform .25s ease;
 }
 
-/* Iconos según modo */
-body.claro .sol { opacity: 0; transform: rotate(90deg); }
-body.claro .luna { opacity: 1; transform: rotate(0deg); }
+.icon-sun {
+    opacity: 0;
+    transform: translateY(8px);
+}
 
-body:not(.claro) .sol { opacity: 1; transform: rotate(0deg); }
-body:not(.claro) .luna { opacity: 0; transform: rotate(-90deg); }
+.icon-moon {
+    opacity: 1;
+}
+
+/* ICONOS EN MODO light */
+body.light .icon-sun {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.light .icon-moon {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+/* PALETA MODO light */
+body.light {
+    --color-fondo: #f4f4f6;
+    --color-fondo-secundario: #ffffff;
+    --color-texto: #1a1a1a;
+    --color-texto-secundario: #3d3d3d;
+    --color-azul: #4169e1;
+    --color-azul-hover: #3356c9;
+}
+
+/* NAV en MODO light */
+body.light .navegacion {
+    background: #d6d6d6;
+    border-bottom: 3px solid rgba(0,0,0,0.1);
+}
+
+body.light .logo,
+body.light .enlace-nav {
+    color: #1a1a1a;
+}
+
+/* TARJETAS MODO light */
+body.light .tarjeta-info,
+body.light .tarjeta-perfil,
+body.light .sobre-mi-card,
+body.light .contenido-servicios,
+body.light .proyecto-card,
+body.light .contacto-card {
+    background: #ffffff;
+    color: var(--color-texto);
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.12);
+}
 
 
+
+/* ================================
+   🎨 PALETA DEL MODO light PERSONALIZADO
+===================================*/
+body.light {
+    --color-fondo: #c4c4c4;
+    --color-fondo-secundario: #ffffff;
+    --color-texto: #000000;
+    --color-texto-secundario: #000000;
+    --color-azul: #4169E1;
+    --color-azul-hover: #5179f1;
+}
+
+/* ================================
+   🟦 TARJETAS EN MODO light
+===================================*/
+body.light .tarjeta-info,
+body.light .tarjeta-perfil,
+body.light .cta-trabajemos,
+body.light .contenido-servicios,
+body.light .sobre-mi-card,
+body.light .cta-debajo-card,
+body.light .firma-servicios,
+body.light .item-menu-servicio,
+body.light .servicio-card,
+body.light .contenido-cta-servicios,
+body.light .perfiles-servicios perfiles-habilidades,
+body.light .perfiles-servicios,
+body.light .habilidades,
+body.light .habilidad-card,
+body.light .info-proyecto,
+body.light .contact-card,
+body.light .proyecto-card,
+body.light .proyecto-info,
+body.light .contacto-card,
+body.light .info-card {
+    background: #cfcfcf !important;
+    border: 3px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    color: var(--color-texto);
+}
+
+/* ================================
+   🔘 ELEMENTOS ADICIONALES EN MODO light
+===================================*/
+body.light .social-box,
+body.light .item-contacto,
+body.light .icono-perfil {
+    background-color: rgb(187, 186, 186) !important;
+}
+
+body.light .icono-red-contacto {
+    background-color: #ffffff;
+    width: 50px;
+    height: 50px;
+}
+
+body.light .flecha-perfiles {
+    color: #4169E1;
+}
+
+body.light .flecha-perfiles:hover {
+    background-color: #5179f1;
+}
+
+/* ================================
+   ⭐ MENÚ DE SERVICIOS EN MODO light
+===================================*/
+body.light .item-menu-servicio.activo {
+    background-color: var(--color-azul);
+    border-color: var(--color-azul);
+    color: #000000;
+    box-shadow: 0 8px 28px rgba(65,105,225,0.15);
+}
+
+/* ================================
+   📝 TÍTULOS EN PERFILES (MODO light)
+===================================*/
+body.light .perfiles-habilidades .titulo-perfiles {
+    color: #0a0a0a;
+}
