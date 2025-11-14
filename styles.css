@@ -653,7 +653,7 @@ body {
 }
 
 .fecha-experiencia {
-    color: #4169E1;
+    color: var(--color-texto-secundario);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
