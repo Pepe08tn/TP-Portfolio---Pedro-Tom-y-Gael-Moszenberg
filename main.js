@@ -198,43 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observador.observe(seccion);
     });
 
-    // Theme toggle: respect saved preference or OS preference
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    function applyTheme(theme) {
-        if (theme === 'light') {
-            body.classList.add('light-theme');
-            if (themeToggle) themeToggle.classList.add('is-light');
-            const icon = themeToggle && themeToggle.querySelector('.tema-icon');
-            if (icon) icon.textContent = '☀️';
-            themeToggle.setAttribute('aria-pressed', 'true');
-        } else {
-            body.classList.remove('light-theme');
-            if (themeToggle) themeToggle.classList.remove('is-light');
-            const icon = themeToggle && themeToggle.querySelector('.tema-icon');
-            if (icon) icon.textContent = '🌙';
-            themeToggle.setAttribute('aria-pressed', 'false');
-        }
-    }
-
-    // initialize theme from localStorage or prefers-color-scheme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else {
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        applyTheme(prefersLight ? 'light' : 'dark');
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const isLight = body.classList.contains('light-theme');
-            const newTheme = isLight ? 'dark' : 'light';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
+    // (theme toggle removed per user request)
 
     // Apply background images for .habilidad elements that have data-img
     // Use encodeURI to ensure special characters (e.g. '#') are properly escaped in the URL

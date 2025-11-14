@@ -9,21 +9,10 @@
     --color-fondo-secundario: #1a1a1a;
     --color-texto: #ffffff;
     --color-texto-secundario: #a0a0a0;
-    --color-azul: #0b3d91; /* deeper navy accent */
-    --color-azul-hover: #0a2f6b;
+    --color-azul: #4169E1;
+    --color-azul-hover: #5179f1;
     --radio-borde: 16px;
     --transicion: all 0.3s ease;
-}
-
-/* Light theme overrides when body has .light-theme */
-body.light-theme {
-    --color-fondo: #f7f8fa;
-    --color-fondo-secundario: #ffffff;
-    --color-texto: #0b1220;
-    --color-texto-secundario: #545e6a;
-    --color-azul: #1e40af; /* slightly darker blue for contrast */
-    --color-azul-hover: #2748d6;
-    --radio-borde: 14px;
 }
 
 body {
@@ -32,12 +21,6 @@ body {
     color: var(--color-texto);
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-/* Smooth transitions for theme changes */
-body,
-body * {
-    transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 /* NAV */
@@ -60,8 +43,6 @@ body * {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    flex-wrap: nowrap; /* prevent items from wrapping when toggling */
 }
 
 .logo {
@@ -74,23 +55,6 @@ body * {
     display: flex;
     list-style: none;
     gap: 2.5rem;
-}
-
-/* Keep the menu visually centered while right-side actions are fixed */
-.menu-nav {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-/* Ensure the CV button and theme toggle don't push the menu on narrow widths */
-.boton-cv {
-    flex: 0 0 auto;
 }
 
 .enlace-nav {
@@ -147,144 +111,6 @@ body * {
     background-color: var(--color-texto);
     transition: var(--transicion);
 }
-
-/* Theme toggle button in nav */
-.boton-tema {
-    background: transparent;
-    border: none;
-    color: var(--color-texto);
-    padding: 0;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 36px;
-    width: 56px;
-}
-
-/* track + knob */
-.tema-track {
-    position: absolute;
-    left: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 38px;
-    height: 22px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 999px;
-    display: block;
-}
-
-.tema-knob {
-    position: absolute;
-    left: 3px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background: linear-gradient(180deg,#fff,#e6e6e6);
-    border-radius: 50%;
-    box-shadow: 0 6px 12px rgba(11,18,32,0.16);
-    transition: transform 220ms cubic-bezier(.2,.9,.3,1), background 220ms ease, box-shadow 220ms ease;
-}
-
-.tema-icon {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 14px;
-}
-
-/* Active (light) state: move knob to right and change track color */
-.boton-tema.is-light .tema-knob {
-    transform: translateY(-50%) translateX(18px);
-    background: linear-gradient(180deg,#222,#444);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-}
-
-.boton-tema.is-light .tema-track {
-    background: rgba(11,18,32,0.06);
-}
-
-.boton-tema:focus { outline: 2px solid rgba(65,105,225,0.18); outline-offset: 2px; }
-
-/* SVG / icon color overrides so inline fills/strokes follow variables */
-svg { color: inherit; }
-svg[fill] { fill: currentColor !important; }
-svg[stroke] { stroke: currentColor !important; }
-
-/* Light-theme comprehensive overrides: adjust cards, icon backgrounds and borders */
-body.light-theme {
-    --color-fondo: #f7f8fa;
-    --color-fondo-secundario: #ffffff;
-    --color-texto: #0b1220;
-    --color-texto-secundario: #545e6a;
-    --color-azul: #1e40af;
-    --color-azul-hover: #2748d6;
-}
-
-body.light-theme .tarjeta-info,
-body.light-theme .tarjeta-perfil,
-body.light-theme .sobre-mi-card,
-body.light-theme .contact-card,
-body.light-theme .contenido-servicios,
-body.light-theme .perfiles-servicios,
-body.light-theme .cta-debajo-card,
-body.light-theme .tarjeta-proyecto,
-body.light-theme .perfiles-habilidades,
-body.light-theme .firma-servicios,
-body.light-theme .cta-trabajemos {
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,245,245,0.98));
-    border: 1px solid rgba(11,18,32,0.06);
-    box-shadow: 0 10px 30px rgba(11,18,32,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
-    color: var(--color-texto);
-}
-
-/* Muted element backgrounds that used translucent white in dark mode */
-body.light-theme .icono-social,
-body.light-theme .icono-social-sobre-mi,
-body.light-theme .icono-perfil,
-body.light-theme .icono-red-contacto,
-body.light-theme .icono-contacto,
-body.light-theme .item-contacto,
-body.light-theme .social-box,
-body.light-theme .habilidad {
-    background-color: rgba(11,18,32,0.03) !important;
-    border-color: rgba(11,18,32,0.04) !important;
-}
-
-/* Ensure SVG fills/strokes follow the new blue accent in light theme */
-body.light-theme svg { color: var(--color-azul); }
-
-/* In light theme, make the left-menu and small UI icons use the dark text color for contrast (black-ish) */
-body.light-theme .item-menu-servicio svg,
-body.light-theme .icono-tarjeta svg,
-body.light-theme .icono-social svg,
-body.light-theme .icono-perfil svg,
-body.light-theme .icono-red-contacto svg,
-body.light-theme .icono-contacto svg {
-    color: var(--color-texto) !important;
-    fill: currentColor !important;
-    stroke: currentColor !important;
-}
-
-/* Keep CTA circular arrows white so they remain visible on colored circles */
-.flecha-cta,
-.tarjeta-info .flecha-tarjeta,
-.flecha-cta svg,
-.tarjeta-info .flecha-tarjeta svg {
-    color: #ffffff !important;
-    fill: currentColor !important;
-    stroke: currentColor !important;
-}
-
-/* subtle transition when theme changes for background and color */
-html { transition: background-color 260ms ease, color 260ms ease; }
 
 /* Sección Inicio */
 .seccion-inicio {
@@ -897,19 +723,6 @@ html { transition: background-color 260ms ease, color 260ms ease; }
     color: var(--color-texto);
 }
 
-/* Make the left service options look more like the 'cuadrados' (cards) */
-.menu-servicios { gap: 1.25rem; }
-.item-menu-servicio {
-    min-height: 78px;
-    border-radius: var(--radio-borde);
-}
-
-/* Make the 'Trabajemos juntos' section inside services look like a card */
-.contenido-cta-servicios {
-    border-radius: var(--radio-borde);
-    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
-}
-
 .item-menu-servicio svg {
     flex-shrink: 0;
 }
@@ -937,10 +750,10 @@ html { transition: background-color 260ms ease, color 260ms ease; }
 }
 
 .item-menu-servicio.activo {
-    background: linear-gradient(180deg, var(--color-azul), var(--color-azul-hover));
+    background-color: var(--color-azul);
     border-color: var(--color-azul);
     color: #fff;
-    box-shadow: 0 8px 28px rgba(11,61,145,0.18);
+    box-shadow: 0 8px 28px rgba(65,105,225,0.15);
 }
 
 .item-menu-servicio.activo svg,
