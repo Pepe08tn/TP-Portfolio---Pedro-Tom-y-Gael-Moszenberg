@@ -9,6 +9,7 @@
     --color-fondo-secundario: #1a1a1a;
     --color-texto: #ffffff;
     --color-texto-secundario: #a0a0a0;
+    --color-texto-terciario: #000000;
     --color-azul: #4169E1;
     --color-azul-hover: #5179f1;
     --radio-borde: 16px;
@@ -116,6 +117,7 @@ body {
 .seccion-inicio {
     min-height: 100vh;
     padding: 120px 2rem 4rem;
+    margin-top: 2rem;
 }
 
 .contenedor-inicio {
@@ -1250,8 +1252,8 @@ body {
 }
 
 .social-box .icono-red-contacto {
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1484,3 +1486,105 @@ body {
         gap: 1rem;
     }
 }
+
+body.claro {
+    --color-fondo: #c4c4c4;
+    --color-fondo-secundario: #ffffff;
+    --color-texto: #000000;
+    --color-texto-secundario: #000000;
+    --color-azul: #4169E1;
+    --color-azul-hover: #5179f1;
+}
+
+/* TARJETAS EN MODO CLARO */
+body.claro .tarjeta-info,
+body.claro .tarjeta-perfil,
+body.claro .cta-trabajemos,
+body.claro .contenido-servicios,
+body.claro .sobre-mi-card,
+body.claro .cta-debajo-card,
+body.claro .firma-servicios,
+body.claro .item-menu-servicio,
+body.claro .servicio-card,
+body.claro .contenido-cta-servicios,
+body.claro .perfiles-servicios perfiles-habilidades,
+body.claro .perfiles-servicios,
+body.claro .habilidades,
+body.claro .habilidad-card,
+body.claro .info-proyecto,
+body.claro .contact-card,
+body.claro .proyecto-card,
+body.claro .proyecto-info,
+body.claro .contacto-card,
+body.claro .info-card {
+    background: #cfcfcf !important; /* Fondo claro limpio */
+    border: 3px solid rgba(0, 0, 0, 0.08); /* Borde suave */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); /* Sombra elegante */
+    color: var(--color-texto); /* Texto oscuro */
+
+}
+body.claro .social-box,
+body.claro .item-contacto,
+body.claro .icono-perfil{
+    background-color: rgb(187, 186, 186) !important;
+}
+
+body.claro .icono-red-contacto{
+    background-color: #ffffff;
+    width: 50px;
+    height: 50px
+}
+
+body.claro .flecha-perfiles{
+    color: #4169E1;
+}
+body.claro .flecha-perfiles:hover{
+    background-color: #5179f1;
+}
+
+
+body.claro .item-menu-servicio.activo {
+    background-color: var(--color-azul);
+    border-color: var(--color-azul);
+    color: #000000;
+    box-shadow: 0 8px 28px rgba(65,105,225,0.15);
+}
+
+body.claro .perfiles-habilidades .titulo-perfiles {
+    color: #0a0a0a;
+}
+
+.toggle-tema {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(71, 71, 71, 0.87);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .3s ease, background .3s ease;
+    position: relative;
+}
+
+.toggle-tema:hover {
+    transform: scale(1.08) rotate(10deg);
+    background: rgba(255,255,255,0.2);
+}
+
+.toggle-tema span {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+/* Iconos según modo */
+body.claro .sol { opacity: 0; transform: rotate(90deg); }
+body.claro .luna { opacity: 1; transform: rotate(0deg); }
+
+body:not(.claro) .sol { opacity: 1; transform: rotate(0deg); }
+body:not(.claro) .luna { opacity: 0; transform: rotate(-90deg); }
+
+

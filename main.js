@@ -214,3 +214,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Theme toggle (consolidado)
+// Usa el botón con id `theme-toggle` y la clase `is-light` en el botón
+try {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        console.debug('[theme] toggle element found:', themeToggle);
+
+        const setState = (isLight) => {
+            document.body.classList.toggle('light-theme', isLight);
+            themeToggle.classList.toggle('is-light', isLight);
+            themeToggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+        };
+
+        // apply saved preference
+        try {
+            const saved = localStorage.getItem('theme');
+            const isLight = saved === 'light';
+            console.debug('[theme] loaded preference:', saved);
+            setState(isLight);
+        } catch (err) {
+            console.warn('[theme] could not read preference', err);
+            setState(false);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            try {
+                const isLight = document.body.classList.toggle('light-theme');
+                themeToggle.classList.toggle('is-light', isLight);
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                themeToggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+                console.debug('[theme] toggled, isLight=', isLight);
+            } catch (err) {
+                console.error('[theme] toggle failed:', err);
+            }
+        });
+    } else {
+        console.debug('[theme] no #theme-toggle in DOM');
+    }
+} catch (e) {
+    console.error('[theme] init failed', e);
+}
