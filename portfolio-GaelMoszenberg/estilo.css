@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+.logo-header {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.logo-header img {
+    width: 120px;
+    height: auto;
+}
+
 :root {
     --color-fondo: #FFF9F9;
     --color-fondo-secundario: #B8A7A7;
@@ -46,9 +58,14 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+.logo img {
+    max-height: 100%;
+    width: auto;
 }
 
 .menu-nav {
